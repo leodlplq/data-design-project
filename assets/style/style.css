@@ -1,0 +1,26 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body {
+	height: 100vh;
+	background: rgb(74, 13, 214);
+	background: radial-gradient(
+		at 80% 80%,
+		rgba(74, 13, 214, 1) 0%,
+		rgba(54, 9, 121, 1) 61%,
+		rgba(78, 34, 180, 1) 96%
+	);
+	color: white;
+}
+
+.chartBox {
+	width: 400px;
+	padding: 0px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
