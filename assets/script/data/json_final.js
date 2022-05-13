@@ -5,7 +5,7 @@ export const dataClimate = [
 			claim: '1',
 			quote: "Ice isn't melting",
 			nbtweets: '37',
-			color: '#ebdc94',
+			color: '#CBF5C4',
 			top5authors: [
 				{
 					name: 'PeterDClack',
@@ -56,7 +56,7 @@ export const dataClimate = [
 			claim: '1',
 			quote: 'We are heading into ice age',
 			nbtweets: '12',
-			color: '#e6d06a',
+			color: '#B3F0AC',
 			top5authors: [
 				{
 					name: 'ClimateRealists',
@@ -107,7 +107,7 @@ export const dataClimate = [
 			claim: '1',
 			quote: 'Weather is cold',
 			nbtweets: '43',
-			color: '#ccb33d',
+			color: '#99E88F',
 			top5authors: [
 				{
 					name: 'JaggerMickOZ',
@@ -158,7 +158,7 @@ export const dataClimate = [
 			claim: '1',
 			quote: 'There is a hiatus in warming',
 			nbtweets: '38',
-			color: '#ab9427',
+			color: '#74E268',
 			top5authors: [
 				{
 					name: 'PeterDClack',
@@ -209,7 +209,7 @@ export const dataClimate = [
 			claim: '1',
 			quote: 'Sea level rise is exaggerated',
 			nbtweets: '21',
-			color: '#917c14',
+			color: '#30CB26',
 			top5authors: [
 				{
 					name: 'WEschenbach',
@@ -260,7 +260,7 @@ export const dataClimate = [
 			claim: '1',
 			quote: "Extremes aren't increasing",
 			nbtweets: '53',
-			color: '#635407',
+			color: '#00A200',
 			top5authors: [
 				{
 					name: 'JunkScience',
@@ -313,7 +313,7 @@ export const dataClimate = [
 			claim: '2',
 			quote: "It's natural cycles",
 			nbtweets: '89',
-			color: '#2199de',
+			color: '#FDE466',
 			top5authors: [
 				{
 					name: 'PeterDClack',
@@ -364,7 +364,7 @@ export const dataClimate = [
 			claim: '2',
 			quote: 'There is nos evidence for greenhouse effect',
 			nbtweets: '125',
-			color: '#0d7ebf',
+			color: '#DEB100',
 			top5authors: [
 				{
 					name: 'PeterDClack',
@@ -417,7 +417,7 @@ export const dataClimate = [
 			claim: '3',
 			quote: 'Sensitivity is low',
 			nbtweets: '14',
-			color: '#933de3',
+			color: '#CDBBFF',
 			top5authors: [
 				{
 					name: 'NoTricksZone',
@@ -468,7 +468,7 @@ export const dataClimate = [
 			claim: '3',
 			quote: 'There is no species impact',
 			nbtweets: '44',
-			color: '#721ac4',
+			color: '#AE96FF',
 			top5authors: [
 				{
 					name: 'ClimateRealists',
@@ -519,7 +519,7 @@ export const dataClimate = [
 			claim: '3',
 			quote: 'CO2 is not a pollutant',
 			nbtweets: '211',
-			color: '#5f11a8',
+			color: '#5436CD',
 			top5authors: [
 				{
 					name: 'socratesccost',
@@ -572,7 +572,7 @@ export const dataClimate = [
 			claim: '4',
 			quote: 'Policies are harmful',
 			nbtweets: '51',
-			color: '#e64949',
+			color: '#C6F2F0',
 			top5authors: [
 				{
 					name: 'JunkScience',
@@ -623,7 +623,7 @@ export const dataClimate = [
 			claim: '4',
 			quote: 'Policies are ineffective',
 			nbtweets: '8',
-			color: '#d63333',
+			color: '#85DEDC',
 			top5authors: [
 				{
 					name: 'BjornLomborg',
@@ -674,7 +674,7 @@ export const dataClimate = [
 			claim: '4',
 			quote: "Clean energy won't work",
 			nbtweets: '121',
-			color: '#b51f1f',
+			color: '#1ACDC6',
 			top5authors: [
 				{
 					name: 'IowaClimate',
@@ -725,7 +725,7 @@ export const dataClimate = [
 			claim: '4',
 			quote: 'We need energy',
 			nbtweets: '40',
-			color: '#911111',
+			color: '#00B3AA',
 			top5authors: [
 				{
 					name: 'PeterDClack',
@@ -778,7 +778,7 @@ export const dataClimate = [
 			claim: '5',
 			quote: 'Science is unreliable',
 			nbtweets: '99',
-			color: '#6de866',
+			color: '#FCE2CC',
 			top5authors: [
 				{
 					name: 'WEschenbach',
@@ -829,7 +829,7 @@ export const dataClimate = [
 			claim: '5',
 			quote: 'Climate movement is unreliable',
 			nbtweets: '185',
-			color: '#42c746',
+			color: '#E79C53',
 			top5authors: [
 				{
 					name: 'ClimateRealists',
