@@ -1,40 +1,55 @@
 import { dataClimate } from './data/json_final.js'
 
 var canvas = document.getElementById('myChart')
+
+// activeClaim and activeSubClaim are variables that let
+// you know if claim or subclaim is selected to be displayed
 let activeClaim = -1
 let activeSubClaim = -1
 
-let claimTitle = ['Global warmings is not happening', 'Humans greenhouse gazes are not causing global warming', 'Climate impact are not bad', "Climate solutions won't work", "Climate movement/science is unreliable"]
+let claimTitle = [
+	'Global warmings is not happening',
+	'Humans greenhouse gazes are not causing global warming',
+	'Climate impact are not bad',
+	"Climate solutions won't work",
+	'Climate movement/science is unreliable',
+]
 
-const _titleSubClaim= document.querySelector('.title-subclaim')
+const _titleSubClaim = document.querySelector('.title-subclaim')
 const _nbTweetSubClaim = document.querySelector('.desc-subclaim')
 const _userList = document.querySelector('.list-user')
 const _wordList = document.querySelector('.list-word')
-const _informationsDiv=document.querySelector('.informations');
+const _informationsTitlesDiv = document.querySelector('.titles')
+const _informationsListsDiv = document.querySelector('.lists')
 
-const _titleInnerCircle = document.querySelector('.text > h3');
-const _textInnerCircle = document.querySelector('.text > span');
+const _titleInnerCircle = document.querySelector('.text > h3')
+const _textInnerCircle = document.querySelector('.text > span')
 
-
-
+//getting numbers of tweets per claim
 const nbTweetPerClaim = dataClimate.map((el) => {
 	return el.reduce((acc, curr) => (acc += parseInt(curr.nbtweets)), 0)
 })
+
+//getting numbers of subclaim per claim
 const nbSubPerClaim = dataClimate.map((el) => el.length)
+
+//getting number of tweets per subclaim
 const nbTweetPerSubClaim = []
 dataClimate.forEach((claim) => {
 	claim.forEach((subclaim) => {
 		nbTweetPerSubClaim.push(parseInt(subclaim.nbtweets))
 	})
 })
+
+//flatten the main array, so we have access to all with just one loop
 const dataClimateFlat = []
 dataClimate.forEach((claim) => {
 	claim.forEach((subclaim) => {
 		dataClimateFlat.push(subclaim)
 	})
 })
-console.log(dataClimateFlat)
 
+//function that create config object for our Chart w/ ChartJS plugin
 const baseData = () => ({
 	datasets: [
 		{
@@ -57,8 +72,8 @@ const baseData = () => ({
 	],
 })
 
+//datasets for our ChartJS plugin
 const subclaimData = () => {
-	console.log('-----------------')
 	const colors = []
 	dataClimate.forEach((claim, i) => {
 		if (i === activeClaim) {
@@ -78,20 +93,28 @@ const subclaimData = () => {
 	}
 }
 
+//displaying the data on screen depending on the claim and subclaim
 const displayData = () => {
-	_informationsDiv.style.display = "flex"
+	_informationsTitlesDiv.style.display = 'block'
+	_informationsListsDiv.style.display = 'flex'
 	console.log(dataClimateFlat[activeSubClaim])
 	const data = dataClimateFlat[activeSubClaim]
 	_titleSubClaim.innerHTML = `&#8220;${data.quote}&#8221;`
 	_nbTweetSubClaim.innerHTML = `${data.nbtweets} tweets`
-	_userList.innerHTML = ""
-	_wordList.innerHTML = ""
-	data.top5authors.forEach((author,i)=>_userList.innerHTML += `<li><span>${i+1}</span><span>${author.name}</span> <span> (${author.nbtweets} tweet${author.nbtweets != 1 ? "s": ""})</span></li>`)
-	data.top5words.forEach((word,i)=>_wordList.innerHTML += `<li><span>${i+1}</span><span>${word.word}</span><span> (${word.use} use${word.use != 1 ? "s": ""})</span></li>`)
+	_userList.innerHTML = ''
+	_wordList.innerHTML = ''
 
+	data.top5authors.forEach(
+		(author, i) =>
+			(_userList.innerHTML += `<li><span>${author.nbtweets}</span><span>${author.name}</span></li>`)
+	)
+	data.top5words.forEach(
+		(word, i) =>
+			(_wordList.innerHTML += `<li><span>${word.use}</span><span>${word.word}</span></li>`)
+	)
 }
 
-// config
+// config for ChartJS plugin
 const config = {
 	type: 'doughnut',
 	data: baseData(),
@@ -100,20 +123,21 @@ const config = {
 			animateRotate: false,
 			animateScale: true,
 		},
-		onHover: graphClickEvent,
+		onHover: graphHoverEvent,
 		onClick: subClaimClickEvent,
 		plugins: {
 			tooltip: {
-				enabled: false, // <-- this option disables tooltips
+				enabled: false,
 			},
-		},		
-	},	
+		},
+	},
 }
 
 // render init block
 const myChart = new Chart(canvas, config)
 
-function graphClickEvent(event, array) {
+//Hover event on inner circle
+function graphHoverEvent(event, array) {
 	if (array[0]) {
 		if (array[0].datasetIndex === 1) {
 			if (activeClaim !== array[0].index) {
@@ -123,13 +147,12 @@ function graphClickEvent(event, array) {
 				_titleInnerCircle.innerHTML = claimTitle[activeClaim]
 				_textInnerCircle.innerHTML = `${nbTweetPerClaim[activeClaim]} tweets`
 			}
-		} 
-	} else {
-		// console.error('no graph detected')
+		}
 	}
 }
 
-function subClaimClickEvent(event, array){
+//click event on subclaim
+function subClaimClickEvent(event, array) {
 	if (array[0]) {
 		console.log(array[0])
 		if (array[0].datasetIndex === 0) {
@@ -137,8 +160,6 @@ function subClaimClickEvent(event, array){
 				activeSubClaim = array[0].index
 				displayData()
 			}
-		} 
+		}
 	}
 }
-
-
