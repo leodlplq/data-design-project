@@ -97,7 +97,6 @@ const subclaimData = () => {
 const displayData = () => {
 	_informationsTitlesDiv.style.display = 'block'
 	_informationsListsDiv.style.display = 'flex'
-	console.log(dataClimateFlat[activeSubClaim])
 	const data = dataClimateFlat[activeSubClaim]
 	_titleSubClaim.innerHTML = `&#8220;${data.quote}&#8221;`
 	_nbTweetSubClaim.innerHTML = `${data.nbtweets} tweets`
@@ -154,7 +153,6 @@ function graphHoverEvent(event, array) {
 //click event on subclaim
 function subClaimClickEvent(event, array) {
 	if (array[0]) {
-		console.log(array[0])
 		if (array[0].datasetIndex === 0) {
 			if (activeSubClaim !== array[0].index) {
 				activeSubClaim = array[0].index
